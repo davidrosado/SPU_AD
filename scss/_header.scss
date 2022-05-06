@@ -1,0 +1,22 @@
+#cabecera-site {
+    padding: 70px 0;
+    width: 100%;
+    @media (max-width: 991px) {
+        padding:40px 0
+    }
+}
+#cabecera-site.menu-fijo {
+    position: fixed;
+    min-height: 100px;
+    z-index: 101
+}
+.home #identidad {
+    text-align: center;
+}
+.home {
+    #cabecera-site {
+        position: absolute;
+        left: 0;
+        z-index: 1;
+    }
+}
