@@ -4,6 +4,16 @@
 	$isLocalStorage = FALSE;
 	$redirect = get_bloginfo('url').'/gracias';
 	$carreras = get_field('carreras','option');
+	/* Tipo de dispositivo */
+	$es_movil = '0';
+	if (preg_match('/(android|wap|phone|ipad)/i', strtolower($_SERVER['HTTP_USER_AGENT']))) {
+		$es_movil++;
+	}
+	if ($es_movil > 0) {
+		$DISPOSITIVO = "MOBILE";
+	} else {
+		$DISPOSITIVO = "PC";
+	}  
 ?>
 
 <?php include 'template_parts/i_banner_inicio.php' ?>
