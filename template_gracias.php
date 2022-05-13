@@ -12,17 +12,23 @@
 	$HORA_INICIO_EVENTO = $_SESSION['cf7_submission']['HORA_EVENTO'];
 	$HORA_FIN_EVENTO = $_SESSION['cf7_submission']['HORA_EVENTO_FINAL'];
 	$TITULO_EVENTO = $_SESSION['cf7_submission']['NOMBRE_EVENTO'];
-
-	
 	$ENLACE_ZOOM = $_SESSION['cf7_submission']['campo_zoom'];		
-	/*
-	echo '<pre>';
+	
+	/*echo '<pre>';
 	print_r($_SESSION['cf7_submission']);
 	echo '</pre>';*/
 ?>
 
 <section id="contenido-pagina-gracias" class="seccion-page">
 	<div class="container">
+
+		<div class="row justify-content-center my-5">
+			<div class="cta-page-gracias text-center">
+				<img width="55" src="<?php echo get_stylesheet_directory_uri()?>/images/icono-calendario.png"> 
+				<a href="https://www.google.com/calendar/event?action=TEMPLATE&details=<?php echo $ENLACE_ZOOM ?>&dates=<?php echo $FECHA_INICIO_EVENTO ?>T<?php echo $HORA_INICIO_EVENTO?>/<?php echo $FECHA_FIN_EVENTO ?>T<?php echo $HORA_FIN_EVENTO?>&text=<?php echo $TITULO_EVENTO;?>&trp=false&amp;ctz=America/Lima&sprop=website:<?php bloginfo('url')?>" target="_blank" rel="noreferrer noopener" class="boton-cta">AGREGAR EVENTO A TU CALENDARIO</a>
+			</div>	
+		</div>
+
 		<div class="row justify-content-center">
 			<div class="col-md-12">
 				<div id="frame-gracias" class="wow fadeInDown" data-wow-duration="3s">
@@ -38,13 +44,6 @@
 					}
 					?>					
 				</div>
-			</div>	
-		</div>
-
-		<div class="row justify-content-center mt-5">
-			<div class="cta-page-gracias text-center">
-				<img width="55" src="<?php echo get_stylesheet_directory_uri()?>/images/icono-calendario.png"> 
-				<a href="https://www.google.com/calendar/event?action=TEMPLATE&details=<?php echo $ENLACE_ZOOM ?>&dates=<?php echo $FECHA_INICIO_EVENTO ?>T<?php echo $HORA_INICIO_EVENTO?>/<?php echo $FECHA_FIN_EVENTO ?>T<?php echo $HORA_FIN_EVENTO?>&text=<?php echo $TITULO_EVENTO;?>&trp=false&amp;ctz=America/Lima&sprop=website:<?php bloginfo('url')?>" target="_blank" rel="noreferrer noopener" class="boton-cta">AGREGAR EVENTO A TU CALENDARIO</a>
 			</div>	
 		</div>
 	</div>	

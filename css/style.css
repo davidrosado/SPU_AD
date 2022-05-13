@@ -6837,13 +6837,15 @@ progress {
 
 #banner-home {
   background: url("../images/fondo-banner-home.png") 0 0 no-repeat;
-  padding-top: 380px;
+  padding-top: 220px;
   position: relative;
 }
 @media (max-width: 991px) {
   #banner-home {
     padding-top: 180px;
     background: none;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 #banner-home #sello-ad {
@@ -6866,6 +6868,49 @@ progress {
 @media (max-width: 991px) {
   #banner-home .arrow-down {
     margin-top: -80px;
+  }
+}
+
+section#bottom-banner {
+  padding: 50px 0;
+  background: #ffffff14;
+}
+
+.contenedor-banner {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem;
+  position: relative;
+  background-color: #ffffff3b;
+  background-image: url(../images/bullets-gracias.png);
+  background-position: 15px 15px;
+  background-repeat: no-repeat;
+  border-radius: 30px;
+  border: 2px solid #fff;
+}
+.contenedor-banner .formulario-evento {
+  background: none;
+  border: none;
+  padding: 0 40px;
+}
+@media (max-width: 991px) {
+  .contenedor-banner .formulario-evento {
+    padding: 0;
+  }
+}
+.contenedor-banner .formulario-evento #frm-registro {
+  margin-top: 0;
+}
+.contenedor-banner .icono-banner {
+  position: absolute;
+  left: -15px;
+  top: 30%;
+}
+@media (max-width: 991px) {
+  .contenedor-banner .icono-banner {
+    display: none;
   }
 }
 
@@ -7430,7 +7475,7 @@ img {
   top: -70px;
   z-index: 102;
 }
-@media (max-width: 991px) {
+@media (max-width: 1080px) {
   #pie-pagina #elipse-footer {
     display: none;
   }

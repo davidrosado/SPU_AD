@@ -256,6 +256,39 @@ $(window).scroll(function(){
     
   }, false );
 
+  const selectElement = document.querySelector('#CARRERA_INTERES');
+  // LLENAR CAMPOS SEGUN SELECCIONEMOS EN EL COMBO EVENTOS
+  selectElement.onchange = (e) => {
+    const [option] = e.target.selectedOptions
+    opcion = option.dataset.indice // obtenemos el indice del option para obtener los valores
+
+    // CAMPOS PARA POSTS RELACIONADOS EN PAGINA DE GRACIAS
+    document.querySelector('#SLUG_CATEGORIA').value = listEventos[opcion]['cat_slug']
+    document.querySelector('#POSTSINGLE').value = listEventos[opcion]['idPost']
+
+    // CAMPO CONTADOR DE LEADS
+    document.querySelector('#TEXTO').value = listEventos[opcion]['contador'] + 1
+    
+  // CAMPOS PARA CALENDAR GOOGLE
+    document.querySelector('#NOMBRE_EVENTO').value = listEventos[opcion]['titulo']
+    document.querySelector('#FECHA_EVENTO').value = listEventos[opcion]['new_start_date']
+    document.querySelector('#FECHA_EVENTO_FINAL').value = listEventos[opcion]['new_end_date']
+    document.querySelector('#HORA_EVENTO').value = listEventos[opcion]['new_start_time']
+    document.querySelector('#HORA_EVENTO_FINAL').value = listEventos[opcion]['new_end_time']   
+
+    document.querySelector('#TEXTO_GRACIAS_EVENTO').value = listEventos[opcion]['texto_gracias_evento']
+    // FECHA Y HORA MAIL SUCIRPCION A EVENTO
+    document.querySelector('#SET_FECHA_EVENTO').value = listEventos[opcion]['start_date']
+    document.querySelector('#SET_HORA_EVENTO').value = listEventos[opcion]['start_time']
+
+    // CAMPOS CRM
+    document.querySelector('#campo_zoom').value = listEventos[opcion]['zoom']
+    document.querySelector('#campo_1').value = listEventos[opcion]['campo_1']
+    document.querySelector('#campo_2').value = listEventos[opcion]['campo_2']
+    document.querySelector('#campo_3').value = listEventos[opcion]['campo_3']
+    document.querySelector('#campo_4').value = listEventos[opcion]['campo_4']      
+  } 
+  
 
 document.addEventListener('wpcf7submit',function(event){
   var status=event.detail.status;

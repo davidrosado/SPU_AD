@@ -1,10 +1,12 @@
 #banner-home {
     background: url('../images/fondo-banner-home.png') 0 0 no-repeat;
-    padding-top: 380px;
+    padding-top: 220px;
     position: relative;
     @media (max-width: 991px) {
         padding-top: 180px;
         background: none;
+        padding-left: 15px;
+        padding-right: 15px;
     }    
     #sello-ad {
         position: absolute;
@@ -23,6 +25,48 @@
          @media (max-width: 991px) {
             margin-top: -80px;
         } 
+    }
+}
+
+section#bottom-banner {
+    padding: 50px 0;
+    background: #ffffff14;
+}
+
+.contenedor-banner {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem;
+    position: relative;
+    background-color: #ffffff3b;
+    background-image: url(../images/bullets-gracias.png);
+    background-position: 15px 15px;
+    background-repeat: no-repeat;
+    border-radius: 30px;
+    border: 2px solid #fff;
+
+    .formulario-evento {
+        background: none;
+        border: none;
+        padding: 0 40px;
+        @media (max-width: 991px) {
+            padding: 0;
+        }
+        #frm-registro {
+            margin-top: 0;
+        }
+    }
+
+    .icono-banner {
+        position: absolute;
+        left: -15px;
+        top: 30%;
+
+        @media (max-width: 991px) {
+            display: none;
+        }
     }
 }
 
