@@ -7,7 +7,7 @@ $linkredirect = get_the_permalink();
 // Variables de configuración para panel digital
 $pdConfig['end_point'] = 'https://paneldigital.usil.edu.pe/api/savelead';
 $pdConfig['token'] = 'c6e3e41d-f406-4ca5-b562-fdd2099928de';
-$IDCAMPANIA = get_field('field_626ff5eb270f0','option');
+$IDCAMPANIA = get_field('codigo_campana','option');
 
 function elContador() {
     //global $post;
@@ -61,7 +61,7 @@ function action_wpcf7_before_send_mail( $contact_form ) {
         'campo_4' => $data['campo_4'],
         'CARRERA_INTERES' => $data['NOMBRE_EVENTO'],
         'comodin_1' => $data['POSTSINGLE'], //POST ID
-        'CODIGO_CARRERA' => $data['CODIGO_CARRERA'] // CODIGO CARRERA
+        'CODIGO_CARRERA' => $data['CODIGO_CARRERA'][0] // CODIGO CARRERA
     );
 
     //Iniciamos CURL
