@@ -1,5 +1,25 @@
 var $ = jQuery.noConflict();
 
+document.addEventListener('wpcf7submit',function(event){
+  var status=event.detail.status;
+  //console.log(status);
+  var button=$('.wpcf7-submit[disabled]');
+  var old_value=button.attr('data-value');
+  button.prop('disabled',false);
+  button.val(old_value);
+},false);
+
+$('form.wpcf7-form').on('submit',function(){
+  var form=$(this);
+  var formid=form.attr('id');
+  var button=form.find('input[type=submit]');
+  var buttonid=button.attr('id');
+  var current_val=button.val();
+  $('input#'+buttonid).attr('data-value',current_val);
+  $('input#'+buttonid).prop("disabled",true);
+  $('input#'+buttonid).val("Enviando...");
+});
+
 function filtrar() {
   // Obtener el ID del boton clickeado
   let claseboton = event.srcElement.id
@@ -256,56 +276,37 @@ $(window).scroll(function(){
     
   }, false );
 
-  const selectElement = document.querySelector('#CARRERA_INTERES');
-  // LLENAR CAMPOS SEGUN SELECCIONEMOS EN EL COMBO EVENTOS
-  selectElement.onchange = (e) => {
-    const [option] = e.target.selectedOptions
-    opcion = option.dataset.indice // obtenemos el indice del option para obtener los valores
+  if (selectEventos !== '') {
+    const selectElement = document.querySelector('#CARRERA_INTERES');
+    // LLENAR CAMPOS SEGUN SELECCIONEMOS EN EL COMBO EVENTOS
+    selectElement.onchange = (e) => {
+      const [option] = e.target.selectedOptions
+      opcion = option.dataset.indice // obtenemos el indice del option para obtener los valores
 
-    // CAMPOS PARA POSTS RELACIONADOS EN PAGINA DE GRACIAS
-    document.querySelector('#SLUG_CATEGORIA').value = listEventos[opcion]['cat_slug']
-    document.querySelector('#POSTSINGLE').value = listEventos[opcion]['idPost']
+      // CAMPOS PARA POSTS RELACIONADOS EN PAGINA DE GRACIAS
+      document.querySelector('#SLUG_CATEGORIA').value = listEventos[opcion]['cat_slug']
+      document.querySelector('#POSTSINGLE').value = listEventos[opcion]['idPost']
 
-    // CAMPO CONTADOR DE LEADS
-    document.querySelector('#TEXTO').value = listEventos[opcion]['contador'] + 1
-    
-  // CAMPOS PARA CALENDAR GOOGLE
-    document.querySelector('#NOMBRE_EVENTO').value = listEventos[opcion]['titulo']
-    document.querySelector('#FECHA_EVENTO').value = listEventos[opcion]['new_start_date']
-    document.querySelector('#FECHA_EVENTO_FINAL').value = listEventos[opcion]['new_end_date']
-    document.querySelector('#HORA_EVENTO').value = listEventos[opcion]['new_start_time']
-    document.querySelector('#HORA_EVENTO_FINAL').value = listEventos[opcion]['new_end_time']   
+      // CAMPO CONTADOR DE LEADS
+      document.querySelector('#TEXTO').value = listEventos[opcion]['contador'] + 1
+      
+    // CAMPOS PARA CALENDAR GOOGLE
+      document.querySelector('#NOMBRE_EVENTO').value = listEventos[opcion]['titulo']
+      document.querySelector('#FECHA_EVENTO').value = listEventos[opcion]['new_start_date']
+      document.querySelector('#FECHA_EVENTO_FINAL').value = listEventos[opcion]['new_end_date']
+      document.querySelector('#HORA_EVENTO').value = listEventos[opcion]['new_start_time']
+      document.querySelector('#HORA_EVENTO_FINAL').value = listEventos[opcion]['new_end_time']   
 
-    document.querySelector('#TEXTO_GRACIAS_EVENTO').value = listEventos[opcion]['texto_gracias_evento']
-    // FECHA Y HORA MAIL SUCIRPCION A EVENTO
-    document.querySelector('#SET_FECHA_EVENTO').value = listEventos[opcion]['start_date']
-    document.querySelector('#SET_HORA_EVENTO').value = listEventos[opcion]['start_time']
+      document.querySelector('#TEXTO_GRACIAS_EVENTO').value = listEventos[opcion]['texto_gracias_evento']
+      // FECHA Y HORA MAIL SUCIRPCION A EVENTO
+      document.querySelector('#SET_FECHA_EVENTO').value = listEventos[opcion]['start_date']
+      document.querySelector('#SET_HORA_EVENTO').value = listEventos[opcion]['start_time']
 
-    // CAMPOS CRM
-    document.querySelector('#campo_zoom').value = listEventos[opcion]['zoom']
-    document.querySelector('#campo_1').value = listEventos[opcion]['campo_1']
-    document.querySelector('#campo_2').value = listEventos[opcion]['campo_2']
-    document.querySelector('#campo_3').value = listEventos[opcion]['campo_3']
-    document.querySelector('#campo_4').value = listEventos[opcion]['campo_4']      
-  } 
-  
-
-document.addEventListener('wpcf7submit',function(event){
-  var status=event.detail.status;
-  //console.log(status);
-  var button=$('.wpcf7-submit[disabled]');
-  var old_value=button.attr('data-value');
-  button.prop('disabled',false);
-  button.val(old_value);
-},false);
-
-$('form.wpcf7-form').on('submit',function(){
-  var form=$(this);
-  var formid=form.attr('id');
-  var button=form.find('input[type=submit]');
-  var buttonid=button.attr('id');
-  var current_val=button.val();
-  $('input#'+buttonid).attr('data-value',current_val);
-  $('input#'+buttonid).prop("disabled",true);
-  $('input#'+buttonid).val("Enviando...");
-});
+      // CAMPOS CRM
+      document.querySelector('#campo_zoom').value = listEventos[opcion]['zoom']
+      document.querySelector('#campo_1').value = listEventos[opcion]['campo_1']
+      document.querySelector('#campo_2').value = listEventos[opcion]['campo_2']
+      document.querySelector('#campo_3').value = listEventos[opcion]['campo_3']
+      document.querySelector('#campo_4').value = listEventos[opcion]['campo_4']      
+    }     
+  }

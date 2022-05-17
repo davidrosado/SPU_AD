@@ -247,6 +247,7 @@ new UsilTerms(termsOptions).init();
 
 carreras = document.getElementById("CODIGO_CARRERA");
 carreras.innerHTML = '<?php echo $carreras ?>'
+selectEventos = ''
 
 </script>
 
